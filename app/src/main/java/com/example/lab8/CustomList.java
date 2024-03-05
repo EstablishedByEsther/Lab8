@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
+//Borrowed some code from my previous lab : Lab 6 by Moyo Dawodu
 public class CustomList extends ArrayAdapter<City> {
 
     private ArrayList<City> cities;
@@ -65,6 +66,10 @@ public class CustomList extends ArrayAdapter<City> {
     public boolean hasCity(City city){return cities.contains(city);}
 
     public void deleteCity(City city){
+        if (!hasCity(city)) {
+            throw new RuntimeException(city + " does not exist in the indicated CityList.");
+        }
+        cities.remove(city);
     }
 
 }
